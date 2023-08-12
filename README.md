@@ -1,1 +1,1 @@
-# face-mas-detection
+# face-mask-detection
