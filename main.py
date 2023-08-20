@@ -61,7 +61,7 @@ class minWindow(qtw.QWidget):
         self.img.fill(qtg.QColor('darkGrey'))
         self.screen.setPixmap(self.img)
         
-        # layout
+        
         layout = qtw.QVBoxLayout()
         layout.addWidget(label)
         layout.addWidget(self.cameraButton)
@@ -79,7 +79,7 @@ class minWindow(qtw.QWidget):
         if status == True:
             self.cameraButton.setText('close Camera')
             
-            # open camera
+           
             self.capture=VideoCapture()
             self.capture.change_pixmap_signal.connect(self.updateImage)
             self.capture.start()
