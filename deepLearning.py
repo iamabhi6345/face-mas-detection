@@ -50,9 +50,9 @@ def face_mask_prediction(img):
             box = box.astype(int)
             pt1 = (box[0] , box[1])
             pt2 = (box[2] , box[3])
-            # cv2.rectangle(image , pt1 , pt2 ,(0,255,0),2)
+           
 
-            # step-2 Data Preprocessing
+       
             face = image[box[1]:box[3]  , box[0]:box[2]]
             face_blob = cv2.dnn.blobFromImage(face , 1 , (100,100) , (104,117,123) , swapRB=True)  
             face_blob_squeeze = np.squeeze(face_blob).T
@@ -60,7 +60,7 @@ def face_mask_prediction(img):
             face_blob_flip = cv2.flip(face_bob_rotate , 1)
             img_norm= np.maximum(face_blob_flip , 0) / face_blob_flip.max()
 
-            # step-3 deep learning (CNN)
+        
             img_input=img_norm=img_norm.reshape(1,100,100,3)
             result = model.predict(img_input)
             result = softmax(result)[0]
